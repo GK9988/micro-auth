@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "c17f9800-d088-4054-ba2c-b780f3642c2b",
+		"name": "micro-auth-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16366082"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Garv Khurana\",\r\n    \"email\": \"gk12345garvkhurana@gmail.com\",\r\n    \"password\": \"garvk0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Garv Khurana\",\r\n    \"password\": \"garvk0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validateToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHYXJ2IEtodXJhbmEiLCJpYXQiOjE3NDIyNDI1NDAsImV4cCI6MTc0MjI0Mjg0MH0.mCpAJ1Q9JFj2uE-D6AaiKqMCPonUr87TobrAeGNKTDg",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3050/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3050",
+					"path": [
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FIRST-SERVICE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHYXJ2IEtodXJhbmEiLCJpYXQiOjE3NDIyNDI1NDAsImV4cCI6MTc0MjI0Mjg0MH0.mCpAJ1Q9JFj2uE-D6AaiKqMCPonUr87TobrAeGNKTDg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/firstService/api/hello/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"firstService",
+						"api",
+						"hello",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
