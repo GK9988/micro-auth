@@ -2,7 +2,6 @@ package com.garvk.auth_service.service;
 
 import com.garvk.auth_service.model.UserCred;
 import com.garvk.auth_service.repository.UserCredRepo;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -35,5 +34,13 @@ public class AuthService {
 
     public String generateToken(String aInUserName){
         return jwtService.generateToken(aInUserName);
+    }
+
+    public void validateTokenFields(String aInToken){
+        jwtService.validateTokenFields(aInToken);
+    }
+
+    public boolean validateToken(String aInToken, UserCred aInUserCred){
+        return jwtService.validateToken(aInToken, aInUserCred);
     }
 }
